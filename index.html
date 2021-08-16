@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Dejarik Online</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital@0;1&family=Coda:wght@800&display=swap');</style>
+<meta name="theme-color" content="#1B4B4B">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="main.css">
+<meta name="description" content="Online Dejarik simulator with multiple rulesets">
+<script src="main.js"></script>
+</head>
+<body>
+<h1>Dejarik</h1>
+<p>Dejarik, also known as Hyperchess, is a game featured in <i>Star Wars</i>, dating all the way back to <i>A New Hope</i>. Although there was no complete ruleset present in the movies, two official rulesets have been created, one for the Jedi Challenges video game and one for <i>Star Wars</i>: Galaxy's Edge in Disneyland. Additionally, about a dozen fan rulesets have been created, some of which have their own variations. However, few are easily playable without a physical Dejarik set. This website attempts to make them playable.</p> 
+<p><a href="https://docs.google.com/document/d/1iw3g_udV7W-5XfNFlcppRwCMOhFag1lTcSPc9ygdseY/edit">Blake Whitlow's document</a> is an invaluable resource for studying Dejarik variants and formed the basis for this website.</p>
+<label for="ruleset">Ruleset:</label>
+<select name="rulset" id="ruleset">
+	<option value="galaxysedge" disabled>Galaxy's Edge</option>
+	<option value="jedichallenges" disabled>Jedi Challenges</option>
+	<option value="brambara" disabled>Brad Bambara</option>
+	<option value="dalsiandon" disabled>DansianDon</option>
+	<option value="barzilia/groi" disabled>Igor Brazilia / Groi</option>
+	<option value="lutovsky" disabled>Joe Lutovsky</option>
+	<option value="kelley" disabled>Mike Kelley</option>
+	<option value="noname" disabled>No Name Publishing</option>
+	<option value="noth" disabled>Noth</option>
+	<option value="paperdragon" disabled>Paper Dragon Folding</option>
+	<option value="martins" disabled>Steve & Ian Martin</option>
+	<option value="ballard" disabled>Tim Ballard</option>
+</select>
+<div id="variationDiv" style="display:none">
+	<label for="variation">Variation:</label>
+	<select name="variation" id="variation"></select>
+</div>
+<div>
+	<button id="start" type="button">Start!</button>
+</div>
+</body>
+</html>
