@@ -15,30 +15,49 @@
 <script src="main.js"></script>
 </head>
 <body>
-<h1>Dejarik</h1>
-<p>Dejarik, also known as Hyperchess, is a game featured in <i>Star Wars</i>, dating all the way back to <i>A New Hope</i>. Although there was no complete ruleset present in the movies, two official rulesets have been created, one for the Jedi Challenges video game and one for <i>Star Wars</i>: Galaxy's Edge in Disneyland. Additionally, about a dozen fan rulesets have been created, some of which have their own variations. However, few are easily playable without a physical Dejarik set. This website attempts to make them playable.</p> 
-<p><a href="https://docs.google.com/document/d/1iw3g_udV7W-5XfNFlcppRwCMOhFag1lTcSPc9ygdseY/edit">Blake Whitlow's document</a> is an invaluable resource for studying Dejarik variants and formed the basis for this website.</p>
-<label for="ruleset">Ruleset:</label>
-<select name="rulset" id="ruleset">
-	<option value="galaxysedge" disabled>Galaxy's Edge</option>
-	<option value="jedichallenges" disabled>Jedi Challenges</option>
-	<option value="brambara" disabled>Brad Bambara</option>
-	<option value="dalsiandon" disabled>DansianDon</option>
-	<option value="barzilia/groi" disabled>Igor Brazilia / Groi</option>
-	<option value="lutovsky" disabled>Joe Lutovsky</option>
-	<option value="kelley" disabled>Mike Kelley</option>
-	<option value="noname" disabled>No Name Publishing</option>
-	<option value="noth" disabled>Noth</option>
-	<option value="paperdragon" disabled>Paper Dragon Folding</option>
-	<option value="martins" disabled>Steve & Ian Martin</option>
-	<option value="ballard" disabled>Tim Ballard</option>
-</select>
-<div id="variationDiv" style="display:none">
-	<label for="variation">Variation:</label>
-	<select name="variation" id="variation"></select>
+<div id="startPage" class="loaded">
+	<h1>Dejarik</h1>
+	<p>Dejarik, also known as Hyperchess, is a game featured in <i>Star Wars</i>, dating all the way back to <i>A New Hope</i>. Although there was no complete ruleset present in the movies, two official rulesets have been created, one for the Jedi Challenges video game and one for <i>Star Wars</i>: Galaxy's Edge in Disneyland. Additionally, about a dozen fan rulesets have been created, some of which have their own variations. However, few are easily playable without a physical Dejarik set. This website attempts to make them playable.</p> 
+	<p><a href="https://docs.google.com/document/d/1iw3g_udV7W-5XfNFlcppRwCMOhFag1lTcSPc9ygdseY/edit">Blake Whitlow's document</a> is an invaluable resource for studying Dejarik variants and formed the basis for this website.</p>
+	<label for="ruleset">Ruleset:</label>
+	<select name="rulset" id="ruleset">
+		<option value="galaxysedge" disabled>Galaxy's Edge</option>
+		<option value="jedichallenges" disabled>Jedi Challenges</option>
+		<option value="brambara" disabled>Brad Bambara</option>
+		<option value="dalsiandon" disabled>DansianDon</option>
+		<option value="barzilia/groi" disabled>Igor Brazilia / Groi</option>
+		<option value="lutovsky" disabled>Joe Lutovsky</option>
+		<option value="kelley" disabled>Mike Kelley</option>
+		<option value="noname" disabled>No Name Publishing</option>
+		<option value="noth" disabled>Noth</option>
+		<option value="paperdragon" disabled>Paper Dragon Folding</option>
+		<option value="martins" disabled>Steve & Ian Martin</option>
+		<option value="ballard" disabled>Tim Ballard</option>
+	</select>
+	<div id="variationDiv" style="display:none">
+		<label for="variation">Variation:</label>
+		<select name="variation" id="variation"></select>
+	</div>
+	<div>
+		<button id="start" type="button">Start!</button>
+	</div>
 </div>
-<div>
-	<button id="start" type="button">Start!</button>
+<div id="game" class="unloaded" style="display: none">
+	<div id="board">
+		<img id="boardSVG" src="boardDark.svg" alt="Dejarik board with 2 outer rings of 12 spaces and one inner space"/>
+		<div id="p1die" width=64 height=64>
+			<img src="dice/d6-d-1.svg" alt="Player 1's die showing 1" width=64px/>
+		</div>
+		<div id="p2die" width=64 height=64>
+			<img src="dice/d6-d-1.svg" alt="Player 1's die showing 1" width=64px/>
+		</div>
+		<div id="helpButton" width=96 height=96>
+			<img src="help.svg" alt="Help button" width=96px/>
+		</div>
+	</div>
 </div>
+
+<audio src="roll.wav" type="audio/wav" autostart="false" style="display:none" id="rollSound">
+
 </body>
 </html>
