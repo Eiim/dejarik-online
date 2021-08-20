@@ -1,11 +1,13 @@
 var rs = "";
 var rsFull = "";
+var ctx;
 
 window.addEventListener("DOMContentLoaded", event => {
 	var rulesetSelect = document.getElementById("ruleset");
 	var variationSelect = document.getElementById("variation");
 	var variationDiv = document.getElementById("variationDiv");
 	var start = document.getElementById("start");
+	ctx = document.getElementById("board").getContext("2d");
 	
 	rulesetSelect.addEventListener("change", e => {
 		if(rulesetSelect.value === "noname") {
@@ -47,6 +49,8 @@ window.addEventListener("DOMContentLoaded", event => {
 		console.log(rsFull);
 		setTimeout(rollDice, 1000);
 	});
+	
+	
 	
 	console.log("Loaded!");
 });

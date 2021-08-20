@@ -43,18 +43,11 @@
 	</div>
 </div>
 <div id="game" class="unloaded" style="display: none">
-	<div id="board">
-		<img id="boardSVG" src="boardDark.svg" alt="Dejarik board with 2 outer rings of 12 spaces and one inner space"/>
-		<div id="p1die" width=64 height=64>
-			<img src="dice/d6-d-1.svg" alt="Player 1's die showing 1" width=64px/>
-		</div>
-		<div id="p2die" width=64 height=64>
-			<img src="dice/d6-d-1.svg" alt="Player 1's die showing 1" width=64px/>
-		</div>
-		<div id="helpButton" width=96 height=96>
-			<img src="help.svg" alt="Help button" width=96px/>
-		</div>
-	</div>
+	<canvas id="board" width="1024" height="1024"></canvas>
+</div>
+
+<div id="images" style="contain: strict;left: 200%;width:0px;height:0px">
+
 </div>
 
 <audio src="roll.wav" type="audio/wav" autostart="false" style="display:none" id="rollSound">

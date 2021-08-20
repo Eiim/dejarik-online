@@ -58,23 +58,3 @@ a:visited {
 	height: 80%;
 	aspect-ratio: 1;
 }
-
-#boardSVG {
-	width: 100%;
-}
-
-#p1die {
-	position: absolute;
-	top: 10%;
-}
-
-#p2die {
-	position: absolute;
-	top: calc(10% + 76px);
-}
-
-#helpButton {
-	position: absolute;
-	top: 10%;
-	right: calc(50% - 50vh + 96px);
-}
