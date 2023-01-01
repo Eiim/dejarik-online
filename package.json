@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf build/",
-    "copy-files": "copyfiles -u 1 static/**/* build/",
+    "copy-files": "copyfiles -u 1 static/* build/ && copyfiles -u 1 static/**/* build/",
     "build": "npm run clean && tsc && npm run copy-files"
   },
   "repository": {
