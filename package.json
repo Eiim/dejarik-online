@@ -1,0 +1,26 @@
+{
+  "name": "dejarik-online",
+  "version": "0.1.0",
+  "description": "An online Dejarik game simulator",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf build/",
+    "copy-files": "copyfiles -u 1 static/**/* build/",
+    "build": "npm run clean && tsc && npm run copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eiim/dejarik-online.git"
+  },
+  "author": "Eiim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eiim/dejarik-online/issues"
+  },
+  "homepage": "https://github.com/Eiim/dejarik-online#readme",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4"
+  }
+}
