@@ -4,7 +4,7 @@
   "description": "An online Dejarik game simulator",
   "private": true,
   "scripts": {
-    "build": "syncdir static build && tsc"
+    "build": "syncdir --quiet static build && tsc"
   },
   "repository": {
     "type": "git",

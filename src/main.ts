@@ -50,20 +50,23 @@ window.addEventListener("DOMContentLoaded", event => {
 		setTimeout(rollDice, 1000);
 	});
 	
-	
-	
 	console.log("Loaded!");
 });
 
 function rollDice() {
-	var p1die = document.getElementById("p1die");
-	var p2die = document.getElementById("p2die");
+	var p1die = document.getElementById("p1die") as HTMLImageElement;
+	var p2die = document.getElementById("p2die") as HTMLImageElement;
 	var p1fn = Math.ceil(Math.random()*6);
 	var p2fn = Math.ceil(Math.random()*6);
-	p1die.innerHTML = '<img src="dice/d6-d-'+p1fn+'.svg" alt="Player 1\'s die showing '+p1fn+'" width=64px/>';
-	p2die.innerHTML = '<img src="dice/d6-d-'+p2fn+'.svg" alt="Player 2\'s die showing '+p2fn+'" width=64px/>';
+	p1die.src = 'dice/d6-d-'+p1fn+'.svg';
+	p1die.alt = 'Player 1\'s die showing '+p1fn;
+	p2die.src = 'dice/d6-d-'+p2fn+'.svg';
+	p2die.alt = 'Player 1\'s die showing '+p2fn;
 	
-	(document.getElementById("rollSound") as HTMLAudioElement).play();
+	p1die.style.opacity = "1";
+	p2die.style.opacity = "1";
+	
+	//(document.getElementById("rollSound") as HTMLAudioElement).play();
 	if(p1fn == p2fn) {
 		setTimeout(rollDice, 1500);
 	} else {
@@ -71,8 +74,8 @@ function rollDice() {
 	}
 }
 
-function initGame(p1Start) {
+function initGame(p1Start: boolean) {
 	console.log("Player "+(p1Start ? "1" : "2")+" is starting first");
-	document.getElementById("p1die").style.display = "none";
-	document.getElementById("p2die").style.display = "none";
+	document.getElementById("p1die").style.opacity = "0";
+	document.getElementById("p2die").style.opacity = "0";
 }
