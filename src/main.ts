@@ -3,11 +3,11 @@ var rsFull = "";
 var ctx;
 
 window.addEventListener("DOMContentLoaded", event => {
-	var rulesetSelect = document.getElementById("ruleset");
-	var variationSelect = document.getElementById("variation");
-	var variationDiv = document.getElementById("variationDiv");
-	var start = document.getElementById("start");
-	ctx = document.getElementById("board").getContext("2d");
+	var rulesetSelect = document.getElementById("ruleset") as HTMLSelectElement;
+	var variationSelect = document.getElementById("variation") as HTMLSelectElement;
+	var variationDiv = document.getElementById("variationDiv") as HTMLDivElement;
+	var start = document.getElementById("start") as HTMLButtonElement;
+	ctx = (document.getElementById("board") as HTMLCanvasElement).getContext("2d");
 	
 	rulesetSelect.addEventListener("change", e => {
 		if(rulesetSelect.value === "noname") {
@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", event => {
 		if(varn != "") {
 			rsFull += "-"+varn;
 		}
-		document.getElementById("game").style = "";
+		document.getElementById("game").style.display = "";
 		document.getElementById("startPage").className = "unloaded";
 		setTimeout(()=>{document.getElementById("game").className = "loaded";}, 0);
 		console.log(rsFull);
@@ -63,7 +63,7 @@ function rollDice() {
 	p1die.innerHTML = '<img src="dice/d6-d-'+p1fn+'.svg" alt="Player 1\'s die showing '+p1fn+'" width=64px/>';
 	p2die.innerHTML = '<img src="dice/d6-d-'+p2fn+'.svg" alt="Player 2\'s die showing '+p2fn+'" width=64px/>';
 	
-	document.getElementById("rollSound").play();
+	(document.getElementById("rollSound") as HTMLAudioElement).play();
 	if(p1fn == p2fn) {
 		setTimeout(rollDice, 1500);
 	} else {
