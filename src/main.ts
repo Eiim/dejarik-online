@@ -2,6 +2,38 @@ var rs = "";
 var rsFull = "";
 var ctx;
 
+interface Game {
+	name: string;
+	id: string;
+	supported: boolean;
+	variants?: Array<Variant>;
+}
+
+interface Variant {
+	name: string;
+	id: string;
+	supported: boolean;
+}
+
+const games: Array<Game> = [
+{name: "Galaxy's Edge", id:"galaxysedge", supported: false},
+{name: "Jedi Challenges", id:"jedichallenges", supported: false},
+{name: "Brad Bambara", id:"bambara", supported: false},
+{name: "DalsianDon", id:"dalsiandon", supported: false},
+{name: "Igor Barzilia / Groi", id:"barzilia/groi", supported: false},
+{name: "Joe Lutovsky", id:"lutovsky", supported: false},
+{name: "Mike Kelley", id:"kelley", supported: false},
+{name: "No Name Publishing", id:"noname", supported: false, variants:[
+	{name: "Standard", id: "standard", supported: false},
+	{name: "Corelian", id: "corellian", supported: false},
+	{name: "Imperial", id: "imperial", supported: false}
+]},
+{name: "Noth", id:"noth", supported: false},
+{name: "Paper Dragon Folding", id:"paperdragon", supported: false},
+{name: "Steve & Ian Martin", id:"martins", supported: false},
+{name: "Tim Ballard", id:"ballard", supported: false}
+]
+
 window.addEventListener("DOMContentLoaded", event => {
 	var rulesetSelect = document.getElementById("ruleset") as HTMLSelectElement;
 	var variationSelect = document.getElementById("variation") as HTMLSelectElement;
@@ -9,25 +41,24 @@ window.addEventListener("DOMContentLoaded", event => {
 	var start = document.getElementById("start") as HTMLButtonElement;
 	ctx = (document.getElementById("board") as HTMLCanvasElement).getContext("2d");
 	
+	for(var game of games) {
+		var opt = document.createElement("option");
+		opt.value = game.id;
+		opt.textContent = game.name;
+		opt.disabled = !game.supported;
+		rulesetSelect.add(opt);
+	}
+	
 	rulesetSelect.addEventListener("change", e => {
-		if(rulesetSelect.value === "noname") {
-			var s = document.createElement("option");
-			s.value = "standard";
-			s.disabled = true;
-			s.textContent = "Standard";
-			variationSelect.add(s);
-		
-			var c = document.createElement("option");
-			c.value = "corellian";
-			c.disabled = true;
-			c.textContent = "Correlian";
-			variationSelect.add(c);
-		
-			var i = document.createElement("option");
-			i.value = "Imperial";
-			i.disabled = true;
-			i.textContent = "Imperial";
-			variationSelect.add(i);
+		var game = gameFromId(rulesetSelect.value);
+		if(game.variants) {
+			for(var variant of game.variants) {
+				var opt = document.createElement("option");
+				opt.value = variant.id;
+				opt.textContent = variant.name;
+				opt.disabled = !variant.supported;
+				variationSelect.add(opt);
+			}
 			
 			variationDiv.style.display = "block";
 		} else {
@@ -78,4 +109,25 @@ function initGame(p1Start: boolean) {
 	console.log("Player "+(p1Start ? "1" : "2")+" is starting first");
 	document.getElementById("p1die").style.opacity = "0";
 	document.getElementById("p2die").style.opacity = "0";
+}
+
+function gameFromId(gameId: string): Game {
+	for(var game of games) {
+		if(game.id === gameId) {
+			return game;
+		}
+	}
+	return null;
+}
+
+function variantFromId(variantId: string, game: Game): Variant {
+	if(game.variants) {
+		return null;
+	}
+	for(var v of game.variants) {
+		if(v.id === variantId) {
+			return v;
+		}
+	}
+	return null;
 }
